@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id = "beanClientD" class="com.th3h.xml.ClientD"/>
+    <bean id = "beanClientC" class="com.th3h.xml.ClientC"/>
+    <bean id = "beanClientB" class="com.th3h.xml.ClientB">
+        <property name="clientC" ref="beanClientC"/>
+    </bean>
+    <bean id = "beanClientA" class="com.th3h.xml.ClientA">
+        <constructor-arg name="clientB" ref="beanClientB"/>
+        <constructor-arg name="clientD" ref="beanClientD"/>
+    </bean>
+</beans>
